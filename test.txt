@@ -1,0 +1,17 @@
+write a script to move the lines which contains and 
+to the another file and display the content of 
+the files and print the number of lines present in  file
+
+
+#!/bin/bash
+set -x
+echo "enter the filename"
+read file
+grep -i "and" $file >> file3
+rm $file
+cat file3
+cat file3 | wc -l
+
+
+
+
