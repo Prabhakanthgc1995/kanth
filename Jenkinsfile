@@ -1,35 +1,16 @@
 pipeline {
-    agent any  // Use any available agent
+    agent any  // This means the pipeline will run on any available agent.
 
     stages {
-        stage('Checkout') {
+        stage('Hello') {
             steps {
-                // Checkout the current branch
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                // Simple build step, e.g., Maven
-                sh 'mvn clean install'  // Make sure Maven is installed on the agent
-            }
-        }
-
-        stage('Test') {
-            steps {
-                // Run tests (adjust for your project)
-                sh 'mvn test'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Deploy the application (could be different for each branch)
-                sh 'scp target/my-app.war user@your-server:/path/to/deploy/'
+                // Print 'Hello' to the console output
+                echo 'Hello'
             }
         }
     }
+}
+
 
     post {
         success {
